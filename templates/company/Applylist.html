@@ -1,0 +1,37 @@
+{% extends 'company/base1.html' %}
+{% block contant %}
+
+<div class="card-body">
+    <table id="datatablesSimple">
+        <thead>
+            <tr>
+                <th>Candidate Name</th>
+                <th>Job Name</th>
+                <th>Contact</th>
+                <th>Education</th>
+                <th>Min Salary</th>
+                <th>Max Salary</th>
+                
+            </tr>
+        </thead>
+        {% if jobapply %}
+        <tbody>
+            {% for i in jobapply %}
+            <tr>
+                <td>{{i.candidate.firstname}} {{i.candidate.lastname}}</td>
+                <td>{{i.jobtype}}</td>
+                <td>{{i.contact }}</td>
+                <td>{{i.education}}</td>
+                <td>{{i.min_salary}}</td>
+                <td>{{i.mix_salary}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        {% endif %}
+        
+    </table>
+    
+</div>
+
+
+{% endblock %}

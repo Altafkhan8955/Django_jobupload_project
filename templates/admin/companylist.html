@@ -1,0 +1,48 @@
+{% extends 'company/base1.html' %}
+{% block contant %}
+
+<div class="card-body">
+    <table id="datatablesSimple">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Is_verified</th>
+                <th>Is_created</th>
+                <th>Is_updated</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        {% if comuser %}
+        <tbody>
+            {% for i in comuser %}
+            <tr>
+                <td>{{i.email}}</td>
+                <td>{{i.role}}</td>
+                <td>{{i.is_verified}}</td>
+                <td>{{i.is_created }}</td>
+                <td>{{i.is_updated}}</td>
+                <td>
+                    <form action="{% url 'Verifycompany' pk=i.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="Update">
+                    </form>
+                </td>
+                <td>
+                    <form action="{% url 'companyDelete' pk=i.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="Delete">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        {% endif %}
+        
+    </table>
+    
+</div>
+
+
+{% endblock %}

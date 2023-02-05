@@ -1,0 +1,107 @@
+{% extends 'company/base1.html' %}
+{% block contant %}
+
+<body class="bg-primary">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header"><h3 class="text-center font-weight-light my-4">Job Post</h3></div>
+                                <div class="card-body">
+                                    <form method="post" action="{% url 'jobdetail' %}"  name='jobdetail' enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <center>
+                                            {% if msg %}
+                                            <h4 style="color:green">{{msg}}</h4>
+                                            {% endif %}
+                                         
+                                        </center>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="text" type="text" name="jonname"   />
+                                            <label for="inputEmail">Job Name</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="text" type="text" name="companyname"  />
+                                            <label for="inputPassword">Company Name</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="address" type="text" name="companyaddress"  />
+                                            <label for="inputPassword">Company Address</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="text" type="text" name="jobdescription"  />
+                                            <label for="">Job Description</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputPassword" type="text" name="qualification"  />
+                                            <label for="">Qualification</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputPassword" type="text" name="resposibilities"  />
+                                            <label for="">Resposibilities</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputPassword" type="text" name="location"  />
+                                            <label for="">Location</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputPassword" type="text" name="companywebsite"  />
+                                            <label for="">Company website</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputPassword" type="text" name="companyemail"  />
+                                            <label for="">Company Email</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputPassword" type="text" name="companycontact"  />
+                                            <label for="">Company Contact</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputPassword" type="text" name="salarypackage"  />
+                                            <label for="">Salary Package</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputPassword" type="text" name="experience"  />
+                                            <label for="">experience</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputPassword" type="file" name="logo_pic"  />
+                                            <label for=""></label>
+                                        </div>
+                                        
+                                       
+                                        <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                            
+                                            <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div id="layoutAuthentication_footer">
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy;  Codetech 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+
+
+{% endblock%}
