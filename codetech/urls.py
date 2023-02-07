@@ -23,7 +23,7 @@ urlpatterns = [
    
     path('admin/', admin.site.urls),
     path('button',views.button),
-    path("index",views.index),
+    path(" ",views.index),
     path('signup',views.signup,name="signup"),
     path('Otpverify',views.Otpverify,name="Otpverify"),
     path('login',views.login,name="login"),
