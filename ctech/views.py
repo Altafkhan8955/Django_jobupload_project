@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from  .models import*
 from random import randint
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 # Create your views here.
@@ -38,6 +40,12 @@ def signup(request):
         else:
             if password == cpassword:
                 otp = randint(100000,999999)
+                 #email send otp
+                subject = "otp verify mail" 
+                message = str(otp)
+                from_email = settings.EMAIL_HOST_USER
+                recipent_list = [email]
+                send_mail(subject,message,from_email,recipent_list,fail_silently=True)
                 newuser = UserMaster.objects.create(role=role,otp=otp,email=email,password=password)
                 canduser = Candidate.objects.create(User_id=newuser,firstname=firstname,lastname=lastname)
                 return render(request,"Otpverify.html",{'email':email})
@@ -58,6 +66,12 @@ def signup(request):
             else:
                 if password == cpassword:
                     otp = randint(100000,999999)
+                     #email send otp
+                    subject = "otp verify mail" 
+                    message = str(otp)
+                    from_email = settings.EMAIL_HOST_USER
+                    recipent_list = [email]
+                    send_mail(subject,message,from_email,recipent_list,fail_silently=True)
                     newuser = UserMaster.objects.create(role=role,otp=otp,email=email,password=password)
                     compuser = Company.objects.create(Com_id=newuser,firstname=firstname,lastname=lastname)
                     return render(request,"Otpverify.html",{'email':email})
